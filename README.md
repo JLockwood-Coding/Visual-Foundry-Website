@@ -45,7 +45,17 @@ This project strengthened my understanding of:
 
 ## Screenshots
 
-![Home Page](
+![Home Page](https://github.com/JLockwood-Coding/Visual-Foundry-Website/blob/586d10cdc4fdabedcb78c9ada12a505a0e7bf1e1/Screenshots/Screenshot_1_Home_Page.png)
+
+![Home Page Lower](https://github.com/JLockwood-Coding/Visual-Foundry-Website/blob/586d10cdc4fdabedcb78c9ada12a505a0e7bf1e1/Screenshots/Screenshot_2_Home_Page_Lower.png)
+
+![Who I Am Page](https://github.com/JLockwood-Coding/Visual-Foundry-Website/blob/586d10cdc4fdabedcb78c9ada12a505a0e7bf1e1/Screenshots/Screenshot_3_Who_I_Am_Page.png)
+
+![How I Work Page](https://github.com/JLockwood-Coding/Visual-Foundry-Website/blob/586d10cdc4fdabedcb78c9ada12a505a0e7bf1e1/Screenshots/Screenshot_4_How_I_Work_Page.png)
+
+![Blog Page](https://github.com/JLockwood-Coding/Visual-Foundry-Website/blob/586d10cdc4fdabedcb78c9ada12a505a0e7bf1e1/Screenshots/Screenshot_5_Blog_Page.png)
+
+![Contact Me Page](https://github.com/JLockwood-Coding/Visual-Foundry-Website/blob/586d10cdc4fdabedcb78c9ada12a505a0e7bf1e1/Screenshots/Screenshot_6_Contact_Me_Page.png)
 
 ---
 
