@@ -61,7 +61,7 @@ This project strengthened my understanding of:
 
 ## Result
 
-**Grade Awarded:** A+ (88.89%)
+**Grade Awarded:** A (88.89%)
 
 ---
 
