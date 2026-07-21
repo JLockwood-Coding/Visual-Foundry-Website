@@ -1,0 +1,1558 @@
+
+
+
+
+
+
+
+/*----------The following is the structure and styling for my page bodies----------*/
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: #0f0f0f;
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+/*This is applying the Oswald font and black background to everything in my body*/
+
+main {
+	flex: 1;
+}
+/*By setting the main content within a <main> tag, it will force the footer to the bottom as intended*/
+
+
+
+
+
+
+
+/*----------The following is the styling for the Nav Bar----------*/
+nav {
+	background-image: url("Images/DarkSteel1.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 20px;
+	border-bottom: 2px solid #3a3f44;
+	box-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 2px rgba(255,106,26,0.25);
+}
+/*This is the background image for my nav bar and the nav bar structure itself*/
+				
+nav ul {
+	list-style: none;
+	display: flex;
+	gap: clamp(20px, 4vw, 80px);
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	width: 100%;
+}
+/*This is the layout for my nav bar items*/
+			
+nav a {
+	color: white;
+	text-decoration: none;
+	font-size: clamp(14px, 1.2vw, 22px);
+	transition: color 0.2s ease;
+}
+/*This is the styling for the text in my nav bar*/
+					
+nav a:hover {
+	color: #ffb347;
+}
+/*This is the hover effect for nav bar items*/
+
+nav a.active:not(.home-link) {
+	border-bottom: 2px solid #ff6a1a;
+	padding-bottom: 3px;
+}
+				
+.home-icon {
+	font-size: 18px;
+	vertical-align: middle;
+	line-height: 1;
+	display: inline-block;
+	margin: 0 4px;
+}
+/*This is assigning the home icon to the class .home-icon*/
+				
+.nav-bar {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+				
+.home-item {
+	margin-right: auto;
+	flex-shrink: 0;
+}
+/*Anchors the home item to the left, allowing the remaining nav items to be pushed right via flex spacing*/
+				
+.nav-right {
+	margin-left: auto;
+	display: flex;
+	gap: clamp(20px, 4vw, 80px);
+	align-items: center;
+}
+/*Pushes the other nav items to the right*/							
+			
+nav li {
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+/*This is helping to protect the nav bar elements from distorting when a window is shrunk/expanded*/
+				
+.nav-bar li:not(.home-item) {
+	margin-left: 0;
+}
+				
+.dropdown {
+	position: relative;
+}
+/*The anchor for the dropdown*/
+			
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #0f0f0f;
+	padding: 10px 0;
+	list-style: none;
+	min-width: 120px;
+	z-index: 999;
+	border: 3px solid #2b2b2b;
+	box-shadow: 0 0 60px rgba(0,0,0,1);
+}
+/*Hidden by default, menu floats beneath*/
+							
+.dropdown-menu li a {
+	font-size: 16px;
+	color: white;
+	display: block;
+	text-align: left;
+	padding: 2px 4px;
+}
+			
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+/*Reveals the dropdown when parent is hovered over*/
+			
+.dropdown-menu li a:hover {
+	color: #ffb347;
+}
+			
+.home-link {
+	display: inline-flex;
+	flex-direction: column;
+}
+			
+.home-top {
+	text-decoration: none;
+}
+/*This is in reference to the top half of the home item, the 'Visual Foundry'*/
+			
+.home-link.active .home-bottom {
+	border-bottom: 2px solid #ff6a1a;
+	padding-bottom: 3px;
+}
+/*This is applying the active page orange underline to the bottom half of the home item*/
+
+.home-bottom {
+	font-style: italic;
+}
+/*This is styling the bottom half of the home item, the 'Crafted With Precision'*/
+
+
+
+
+
+
+
+/*----------The following is the styling for the Footer----------*/
+.site-footer {
+	background-image: url("Images/DarkSteel1.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 20px 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	border-top: 2px solid #3a3f44;
+	box-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 2px rgba(255,106,26,0.25);
+}
+
+.footer-left {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.footer-title {
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.social-icon img {
+	width: 32px;
+	height: 32px;
+	transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.social-icon img:hover {
+	transform: translateY(-2px) scale(1.1);
+	filter: drop-shadow(0 0 8px rgba(255,106,26,0.6));
+}
+
+.footer-right {
+	font-size: 14px;
+	opacity: 0.8;
+	text-align: right;
+}
+
+
+
+
+
+
+
+/*The following is the styling for the Portfolio page----------*/
+.portfolio-container {
+	width: min(1400px, 92%);
+	margin: 70px auto;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(320px, 1fr));
+	gap: 50px;
+}
+
+.portfolio-item {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/*Main image card*/
+.portfolio-card {
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+	/*Hover effect*/
+.portfolio-card:hover {
+	transform: translateY(-6px);
+	border-color: #ff6a1a;
+	box-shadow: 0 0 30px rgba(0,0,0,1), 0 0 10px rgba(255,106,26,0.3);
+}
+
+/*Image itself*/
+.portfolio-card img {
+	display: block;
+	width: 100%;
+	height: 320px;	
+}
+
+/*Skinny company title bar*/
+.portfolio-title {
+	display: block;
+	background-color: #161616;
+	border: 2px solid #3a3f44;
+	padding: 10px 18px;
+	text-align: center;
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: white;
+	text-decoration: none;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.15);
+	transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+/*Description synchronized hover*/
+.portfolio-item:hover .portfolio-title {
+	border-color: #ff6a1a;
+	box-shadow: 0 0 25px rgba(0,0,0,1), 0 0 8px rgba(255,106,26,0.25);
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the Testimonials page----------*/
+
+.testimonials-container {
+	width: min(1400px, 92%);
+	margin: 70px auto;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(320px, 1fr)); /*Maximum of 3 boxes per row*/	
+	justify-content: center;
+	gap: 50px;
+}
+
+.testimonial-box {
+	position: relative;
+	width: 100%;
+	min-height: 360px;
+	padding: 85px 35px 40px 35px;
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	box-sizing: border-box;
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.testimonial-box:hover {
+	transform: translate(-6px);
+	border-color: #ff6a1a;
+	box-shadow: 0 0 30px rgba(0,0,0,1), 0 0 10px rgba(255,106,26,0.3);
+}
+
+/*Large quotation mark*/
+.quote-mark {
+	position: absolute;
+	top: 12px;
+	left: 20px;
+	font-size: 90px;
+	line-height: 1;
+	color: rgba(255,255,255,0.35);
+	animation: emberPulse 3s ease-in-out infinite; /*This is reusing the same glowing animation from the Contact Me page*/
+}
+
+/*Text inside the box*/
+.testimonial-box p {
+	color: white;
+	font-size: 21px;
+	line-height: 1.9;
+	letter-spacing: 0.4px;
+	font-weight: 300;
+	margin: 0;
+	max-width: 90%;
+}
+
+/*The author stamp at the end of each quote*/
+.testimonial-author {
+	margin-top: auto;
+	padding-top: 25px;
+	text-align: right;
+	font-size: 18px;
+	letter-spacing: 0.5px;
+	color: white;
+	font-style: italic;
+}
+
+/*The followng blocks of code are giving each quotation mark its own animation, so they feel more organic*/
+.testimonial-box:nth-child(1) .quote-mark {
+	animation-duration: 2.8s;
+	animation-delay: 0.2s;
+}
+
+.testimonial-box:nth-child(2) .quote-mark {
+	animation-duration: 3.7s;
+	animation-delay: 1.1s;
+}
+
+.testimonial-box:nth-child(3) .quote-mark {
+	animation-duration: 4.3s;
+	animation-delay: 0.6s;
+}
+
+.testimonial-box:nth-child(4) .quote-mark {
+	animation-duration: 3.2s;
+	animation-delay: 1.8s;
+}
+
+.testimonial-box:nth-child(5) .quote-mark {
+	animation-duration: 4.8s;
+	animation-delay: 0.4s;
+}
+
+.testimonial-box:nth-child(6) .quote-mark {
+	animation-duration: 2.9s;
+	animation-delay: 2.2s;
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the Contact Me page----------*/
+.contact-page {
+	padding: 20px 8%;
+}
+
+.contact-hero {
+	display: flex;
+	justify-content: left;
+	margin-bottom: 20px;	
+}
+
+/*This is giving my hero heading the glowing animation*/
+@keyframes emberPulse {
+	0% {
+		text-shadow: 0 0 6px rgba(255,106,26,0.3), 0 0 14px rgba(255,106,26,0.2);
+	}
+
+	50% {
+		text-shadow: 0 0 18px rgba(255,106,26,0.9), 0 0 22px rgba(255,106,26,0.4), 0 0 34px rgba(255,106,26,0.2);
+	}
+
+	100% {
+		text-shadow: 0 0 6px rgba(255,106,26,0.3), 0 0 14px rgba(255,106,26,0.2);
+	}
+}
+
+.contact-hero h1 {
+	border: 2px solid #3a3f44;
+	padding: 20px 40px;
+	background-color: #161616;
+	box-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 2px rgba(255,106,26,0.25);
+	font-size: clamp(28px, 3vw, 48px);
+	letter-spacing: 1px;
+	color: #ffffff;
+	text-shadow: 0 0 6px rgba(255, 106, 26, 0.35), 0 0 14px rgba(255, 106, 26, 0.25), 0 0 24px rgba(255, 106, 26, 0.15);
+	animation: emberPulse 3s ease-in-out infinite; /*This is inputting the animation from above*/
+}
+
+.contact-container {
+	display: flex;
+	margin: 80px auto;
+	gap: 80px;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap: wrap;
+	background-color: #161616;
+	border: 2px solid #3a3f44;
+	padding: 40px;
+	width: min(1400px, 92%);	
+	box-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 2px rgba(255,106,26,0.25);
+	box-sizing: border-box;
+}
+
+/*This is for the form panel on the left*/
+.contact-form-panel {	
+	margin: 0;
+	width: 100%;
+	max-width: 950px;	
+}
+
+/*This is for the info panel on the right*/
+.contact-info-panel {
+	background-color: #161616;
+	border: 2px solid #3a3f44;
+	margin-top: 32px;
+	padding: 20px 40px;
+	width: 100%;
+	max-width: 260px;
+	box-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 2px rgba(255,106,26,0.25);
+	box-sizing: border-box;
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-info-panel:hover {
+	transform: translate(-6px);
+	border-color: #ff6a1a;
+	box-shadow: 0 0 30px rgba(0,0,0,1), 0 0 10px rgba(255,106,26,0.3);
+}
+
+/*Removes that weird little underline link i had under the social icons*/
+.social-icon {
+	text-decoration: none;
+	display: inline-block;
+}
+
+.contact-form-panel input, 
+.contact-form-panel textarea {
+	width: 100%;	
+	background-color: #0f0f0f;
+	color: white;
+	border: none;
+	border-bottom: 2px solid #3a3f44;
+	padding: 10px 0;
+	margin-bottom: 30px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
+	outline: none;
+	transition: border-color 0.2s ease;	
+}
+
+/*This is giving the bigger height to the Your Message section. It also removes the ability for the box to be resized*/
+.contact-form-panel textarea {
+	height: 180px;
+	resize: none;
+}
+
+.contact-form-panel input:focus,
+.contact-form-panel textarea:focus {
+	border-bottom: 2px solid #ff6a1a;
+}
+
+/*This is for the button*/
+.contact-form-panel button {
+	background-color: #1c1c1c;
+	color: white;
+	border: 2px solid #3a3f44;
+	padding: 12px 24px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form-panel button:hover {
+	background-color: #ff6a1a;
+	transform: translateY(-2px);
+	box-shadow: 0 0 12px rgba(255,106,26,0.5);
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the Case Studies page----------*/
+.case-study-page {
+	width: min(1400px, 92%);
+	margin: 70px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 45px;
+}
+
+/*Hero Section*/
+.case-hero {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	align-items: start;
+}
+
+.case-hero-image {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	overflow: hidden;
+}
+
+.case-hero-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.case-hero-content {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.case-summary-box {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	padding: 30px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+}
+
+.case-summary-box p {
+	line-height: 1.8;
+	font-size: 18px;
+	color: rgba(255,255,255,0.85);
+}
+
+/*Visit Website Button*/
+.visit-site-button {
+	display: inline-block;
+	width: fit-content;
+	padding: 14px 28px;
+	background-color: #1c1c1c;
+	border: 2px solid #3a3f44;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.visit-site-button:hover {
+	transform: translateY(-2px);
+	background-color: #ff6a1a;
+	box-shadow: 0 0 12px rgba(255,106,26,0.5);
+}
+
+/*Divider*/
+.case-divider {
+	display: flex;
+	justify-content: center;
+}
+
+.case-divider img {
+	width: 100%;
+	max-width: 400px;
+}
+
+/*Metadata Grid*/
+.case-meta-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+}
+
+.meta-card {
+	background: transparent;
+	border: none;
+	padding: 20px;
+	text-align: center;	
+	box-shadow: none;
+	transition: transform 0.25s ease;
+}
+
+.meta-card img {
+	width: 50%;
+	height: 50%;
+	object-fit: contain;
+	margin-bottom: 18px;
+	filter: drop-shadow(0 0 6px rgba(255,106,26,0.25)) drop-shadow(0 0 18px rgba(255,106,26,0.15));
+	transition: filter 0.25s ease, transform 0.25s ease;
+	animation: emberPulseIcon 3s ease-in-out infinite;
+}
+
+@keyframes emberPulseIcon {
+	0% {
+		filter: drop-shadow(0 0 4px rgba(255,106,26,0.25)) drop-shadow(0 0 8px rgba(255,106,26,0.15));
+	}
+
+	50% {
+		filter: drop-shadow(0 0 8px rgba(255,106,26,0.6)) drop-shadow(0 0 12px rgba(255,106,26,0.35)) drop-shadow(0 0 40px rgba(255,106,26,0.15));
+	}
+
+	100% {
+		filter: drop-shadow(0 0 4px rgba(255,106,26,0.25)) drop-shadow(0 0 8px rgba(255,106,26,0.15));
+	}
+}
+
+.meta-card h3 {
+	margin: 0 0 10px;
+	font-size: 22px;
+	letter-spacing: 1px;
+}
+
+.meta-card p {
+	margin: 0;
+	color: rgba(255,255,255,0.8);
+	font-size: 18px;
+	letter-spacing: 0.5px;
+}
+
+/*Details Section*/
+.case-details-section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	align-items: stretch;
+}
+
+/*Left Text Column*/
+.case-text-column,
+.case-gallery-column {
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+	gap: 25px;
+}
+
+.case-text-box {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	padding: 28px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+}
+
+.case-text-box h2 {
+	margin-top: 0;
+	font-size: 28px;
+	letter-spacing: 1px;
+}
+
+.case-text-box p {
+	line-height: 1.9;
+	font-size: 17px;
+	color: rgba(255,255,255,0.85);
+}
+
+/*Gallery Images*/
+.gallery-image {
+	border: 2px solid #444;
+	overflow: hidden;
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+}
+
+.gallery-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/*Responsive*/
+@media (max-width: 1000px) {
+
+	.case-hero,
+	.case-details-section {
+		grid-template-columns: 1fr;
+	}
+
+	.case-meta-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 650px) {
+
+	.case-meta-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the What I Do page----------*/
+.whatido-container {
+	width: min(1400px, 92%);
+	margin: 70px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	justify-content: center;
+}
+
+.service-card {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	font-size: 20px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+	transform: translateY(-6px);
+	border-color: #ff6a1a;
+	box-shadow: 0 0 30px rgba(0,0,0,1), 0 0 10px rgba(255,106,26,0.3);
+}
+
+.service-card p {
+	line-height: 1.8;
+	color: rgba(255,255,255,0.85);
+	text-align: left;
+	width: 100%;
+	flex-grow: 1;
+}
+
+.forge-line {
+	display: block;
+	margin-bottom: auto;
+	color: #ff6a1a;
+	font-style: italic;
+	letter-spacing: 0.5px;
+	text-shadow: 0 0 10px rgba(255,106,26,0.25);
+}
+
+.service-card img {
+	width: 120px;
+	height: 120px;
+	object-fit: contain;
+	margin-bottom: 15px;
+	filter: brightness(65%);
+}
+
+.section-divider {
+	display: flex;
+	justify-content: center;
+}
+
+.section-divider img {
+	width: 100%;
+	max-width: 400px;
+}
+
+.promo-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+}
+
+.promo-item {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.promo-item img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border: 2px solid #444;
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.promo-item:hover img {
+	transform: translateY(-6px);
+	border-color: #ff6a1a;
+	box-shadow: 0 0 30px rgba(0,0,0,1), 0 0 10px rgba(255,106,26,0.3);
+}
+
+.promo-button {
+	display: inline-block;
+	text-align: center;
+	background-color: #1c1c1c;
+	color: white;
+	border: 2px solid #3a3f44;
+	padding: 12px 24px;
+	text-decoration: none;
+	font-size: 18px;
+	transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.promo-button:hover {
+	background-color: #ff6a1a;
+	transform: translateY(-2px);
+	box-shadow: 0 0 12px rgba(255,106,26,0.5);
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the Blog page----------*/
+.blog-container {
+	width: min(1400px, 92%);
+	margin: 70px auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	position: relative;
+	align-items: start;
+}
+
+.blog-container h2 {
+	font-size: 28px;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+}
+
+.featured-post {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.featured-image {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	overflow: hidden;
+}
+
+.featured-image img {
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+	display: block;
+}
+
+.featured-content {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	padding: 25px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+}
+
+.featured-content h3 {
+	margin-top: 0;
+	font-size: 22px;
+}
+
+.featured-content p {
+	line-height: 1.8;
+	color: rgba(255,255,255,0.85);
+}
+
+.read-more {
+	display: inline-block;
+	margin-top: 15px;
+	padding: 10px 20px;
+	background-color: #1c1c1c;
+	border: 2px solid #3a3f44;
+	color: white;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.read-more:hover {
+	background-color: #ff6a1a;
+	transform: translateY(-2px);
+	box-shadow: 0 0 12px rgba(255,106,26,0.5);
+}
+
+
+.latest-posts {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.post-card {
+	display: grid;
+	grid-template-columns: 120px 1fr;
+	gap: 20px;
+	align-items: center;
+	padding: 15px;
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	transition: transform 0.25s ease, border-color 0.25s ease;
+	text-decoration: none;
+	color: inherit;
+}
+
+.post-card:hover {
+	transform: translateY(-4px);
+	border-color: #ff6a1a;
+}
+
+.post-card img {
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	border: 1px solid #333;
+}
+
+.post-card p {
+	margin: 0;
+	line-height: 1.6;
+	color: rgba(255,255,255,0.85);
+}
+
+.blog-divider {
+	position: absolute;
+	left: 50%;
+	top: 0;		
+	height: 100%;
+	transform: translateX(-50%);
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.blog-divider img {
+	height: 90%;
+	max-width: 250px;
+	width: auto;
+	object-fit: contain;
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the Home Page----------*/
+.home-main {
+	position: relative;
+}
+
+.home-background-container {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	overflow: hidden;
+}
+
+.home-video-overlay {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.8;
+}
+
+.home-content {
+	width: min(1400px, 92%);
+	margin: 70px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 70px;
+}
+
+.glow-border {
+	position: relative;
+	border: 2px solid #3a3f44;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/*glowing animated overlay*/
+.glow-border::after {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: inherit;
+	pointer-events: none;
+	animation: emberBorderGlow 3s ease-in-out infinite;
+}
+
+/*animation*/
+@keyframes emberBorderGlow {
+	0% {
+		box-shadow: 0 0 6px rgba(255,106,26,0.25), 0 0 12px rgba(255,106,26,0.15);
+		opacity: 0.6;
+	}
+
+	50% {
+		box-shadow: 0 0 18px rgba(255,106,26,0.7), 0 0 30px rgba(255,106,26,0.3);
+		opacity: 1;
+	}
+
+	100% {
+		box-shadow: 0 0 6px rgba(255,106,26,0.25), 0 0 12px rgba(255,106,26,0.15);
+		opacity: 0.6;
+	}
+}
+
+.hero-image-placeholder,
+.showcase-image-holder {	
+	border: none;
+	box-shadow: none;
+}
+
+/*Hero Section*/
+.home-hero {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 50px;
+	align-items: center;
+}
+
+.hero-text-box {
+	padding: 20px 0;
+	max-width: 700px;
+	border: none;
+	box-shadow: none;
+}
+
+.hero-text-box h1 {
+	font-size: clamp(48px, 6vw, 60px);
+	line-height: 1.1;
+	margin-bottom: 25px;
+	color: #ffffff;
+	text-shadow: 0 0 6px rgba(255,106,26,0.25), 0 0 14px rgba(255,106,26,0.2), 0 0 30px rgba(255,106,26,0.1);
+	animation: emberPulse 3s ease-in-out infinite;
+}
+
+.hero-text-box p {
+	font-size: 22px;
+	line-height: 1.8;
+	max-width: 650px;
+}
+
+.hero-image-placeholder {	
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	position: relative;
+	overflow: visible;
+	max-width: 500px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	justify-self: end;
+}
+
+.hero-image-placeholder img {
+	display: block;
+	width: auto;
+	max-width: 100%;
+	max-height: 400px;
+	object-fit: contain;
+	margin: 0 auto;
+}
+
+.hero-image-placeholder::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	animation: emberBorderGlow 3s ease-in-out infinite;
+}
+
+/*Divider*/
+.home-divider {
+	display: flex;
+	justify-content: center;
+}
+
+.home-divider img {
+	width: 100%;
+	max-width: 400px;
+}
+
+/*Featured Work*/
+.home-featured {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.featured-showcase-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	align-items: center;
+}
+
+.showcase-image-holder {
+	border: 2px solid #444;
+	background: none;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+}
+
+.showcase-image-holder img {	
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+}
+
+.showcase-details-box p {
+	font-size: 22px;
+	line-height: 1.8;
+	color: rgba(255,255,255,0.85);
+	display: block;
+	text-align: justify;
+}
+
+/*Portfolio Button*/
+.portfolio-action-btn {
+	float: right;
+	width: 110px;
+	margin: 20px 0 10px 20px;
+	align-self: flex-start;
+	display: inline-block;
+	padding: 12px 12px;
+	background-color: #1c1c1c;
+	border: 2px solid #3a3f44;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	transition: all 0.2s ease;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.portfolio-action-btn:hover {
+	background-color: #ff6a1a;
+	transform: translateY(-2px);
+	box-shadow: 0 0 12px rgba(255,106,26,0.5);
+}
+
+/*CTA Section*/
+.home-cta {
+	background: none;
+	border: none;
+	padding: 50px;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	box-shadow: none;
+}
+
+.home-cta h2 {
+	margin-top: 0;
+	margin-bottom: 25px;
+	font-size: clamp(28px, 3vw, 42px);
+	display: inline-block;
+	color: #ffffff;
+	text-shadow: 0 0 6px rgba(255,106,26,0.35), 0 0 14px rgba(255,106,26,0.25), 0 0 24px rgba(255,106,26,0.15);
+	animation: emberPulse 3s ease-in-out infinite;
+}
+
+.cta-contact-btn {
+	display: inline-block;
+	padding: 14px 32px;
+	background-color: #1c1c1c;
+	border: 2px solid #3a3f44;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	transition: all 0.2s ease;
+}
+
+.cta-contact-btn:hover {
+	background-color: #ff6a1a;
+	transform: translateY(-2px);
+	box-shadow: 0 0 12px rgba(255,106,26,0.5);
+}
+
+/*Making the page responsive*/
+@media (max-width: 900px) {
+
+	.home-hero,
+	.featured-showcase-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the Who I Am page----------*/
+.who-top {
+	display: block;
+	grid-template-columns: 320px 1fr;
+	gap: 40px;
+	align-items: start;
+	margin: 120px 200px;
+}
+
+.who-image {
+	float: left;
+	width: 320px;
+	margin: 0 38px 18px 0;
+	border: 2px solid #3a3f44;
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.who-image img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.who-text p {
+	font-size: 22px;
+	line-height: 1.8;
+	color: rgba(255,255,255,0.85);
+	text-align: justify;
+}
+
+.who-text {
+	display: block;
+}
+
+.who-text h1 {	
+	line-height: 1.1;	
+	color: #ffffff;
+	text-shadow: 0 0 6px rgba(255,106,26,0.25), 0 0 14px rgba(255,106,26,0.2), 0 0 30px rgba(255,106,26,0.1);
+	animation: emberPulse 3s ease-in-out infinite;
+}
+
+.forge-underline {
+	background-image: linear-gradient( 90deg, transparent 0%, #ff6a1a 50%, transparent 100% );
+	background-size: 200% 2px;
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	animation: underlineTravel 3s linear infinite;
+}
+
+@keyframes underlineTravel {
+	0% {
+		background-position: 200% 100%;
+	}
+
+	100% {
+		background-position: -200% 100%;
+	}
+}
+
+.who-lower {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	align-items: center;
+	width: min(1200px, 92%);
+	margin: 120px auto;
+}
+
+.who-lower-text h2 {
+	font-size: 32px;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+	color: #fff;
+	text-shadow: 0 0 10px rgba(255,106,26,0.2);
+}
+
+.who-lower-text p {
+	font-size: 20px;
+	line-height: 1.8;
+	color: rgba(255,255,255,0.85);
+	max-width: 600px;
+}
+
+.who-work-btn {
+	display: inline-block;
+	margin-top: 25px;
+	padding: 12px 24px;
+	background-color: #1c1c1c;
+	border: 2px solid #3a3f44;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	transition: all 0.2s ease;
+}
+
+.who-work-btn:hover {
+	background-color: #ff6a1a;
+	transform: translateY(-2px);
+	box-shadow: 0 0 12px rgba(255,106,26,0.5);
+}
+
+.who-lower-image {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #3a3f44;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+	overflow: visible;
+}
+
+.who-lower-image img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+}
+
+
+
+
+
+
+
+/*----------The following is the styling for the How I Work page----------*/
+.how-i-work-page {
+	width: min(1400px, 92%);
+	margin: 70px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 70px;
+}
+
+.how-i-work-page .section-hero {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 45px;
+}
+
+.how-i-work-page .section-hero h1 {
+	border: 2px solid #3a3f44;
+	padding: 15px 40px;
+	background-color: #161616;
+	box-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 2px rgba(255,106,26,0.25);
+	font-size: clamp(24px, 2.5vw, 36px);
+	letter-spacing: 1px;
+	color: #ffffff;
+	text-shadow: 0 0 6px rgba(255, 106, 26, 0.35), 0 0 14px rgba(255, 106, 26, 0.25);
+	animation: emberPulse 3s ease-in-out infinite;
+	text-align: center;
+	margin: 0;
+}
+
+/*Horizontal Timeline Layout for Process section*/
+.process-timeline {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 15px;
+	flex-wrap: nowrap;
+}
+
+.process-step {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	min-width: 0; /*Prevents flex items from breaking layout bounds*/
+}
+
+/*Process Image Cards*/
+.process-card {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.process-step:hover .process-card {
+	transform: translateY(-6px);
+	border-color: #ff6a1a;
+	box-shadow: 0 0 30px rgba(0,0,0,1), 0 0 10px rgba(255,106,26,0.3);
+}
+
+.process-card img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/*Process Card Descriptions*/
+.process-desc {
+	text-align: center;
+}
+
+.process-desc h3 {
+	margin: 0 0 8px 0;
+	font-size: 22px;
+	letter-spacing: 0.5px;
+	color: #ffb347;
+}
+
+.process-desc p {
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/*Vector Arrow Connectors using CSS*/
+.process-arrow {
+	align-self: center;
+	margin-top: -100px; /*Centers arrow vertically relative to the image box*/
+	flex-shrink: 0;
+	width: 0;
+	height: 0;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 12px solid #3a3f44;
+	animation: emberPulse 3s ease-in-out infinite;
+}
+
+/*Divider Styling*/
+.how-divider {
+	display: flex;
+	justify-content: center;
+}
+
+.how-divider img {
+	width: 100%;
+	max-width: 400px;
+}
+
+/*Tools 3x2 Grid Setup*/
+.tools-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+}
+
+.tool-box {
+	background: linear-gradient(to bottom, #1f1f1f, #181818);
+	border: 2px solid #444;
+	padding: 35px 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8), 0 0 2px rgba(255,106,26,0.2);
+	box-sizing: border-box;
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tool-box:hover {
+	transform: translate(-6px);
+	border-color: #ff6a1a;
+	box-shadow: 0 0 30px rgba(0,0,0,1), 0 0 10px rgba(255,106,26,0.3);
+}
+
+.tool-box img {
+	width: 120px;
+	height: 120px;
+	object-fit: contain;
+	margin-bottom: 20px;
+	filter: drop-shadow(0 0 4px rgba(255,106,26,0.15));
+}
+
+.tool-box h3 {
+	margin: 0 0 10px 0;
+	font-size: 20px;
+	letter-spacing: 0.5px;
+}
+
+.tool-box p {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 1024px) {
+	.process-timeline {
+		flex-direction: column;
+		align-items: center;
+		gap: 30px;
+	}
+
+	.process-step {
+		width: 100%;
+		max-width: 360px;
+	}
+
+	.process-arrow {
+		margin-top: 0;
+		transform: rotate(90deg);
+	}
+
+	.tools-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 650px) {
+	.tools-grid {
+		grid-template-columns: 1fr;
+	}
+}
